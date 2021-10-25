@@ -10,7 +10,7 @@ import requests
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = './stuff'
 
-@app.route('/')
+@app.route('l/')
 def pt1():
     # file = "../input/11okt10nov.pdf"
     file ='/Users/odinndagur/Code/Github/vaktaplan/input/11okt10nov.pdf'
@@ -36,7 +36,7 @@ def pt1():
 
 
 
-@app.route('/upload')
+@app.route('/')
 def upload_file():
    return render_template('/upload.html')
 	
@@ -71,7 +71,8 @@ def upload_filel():
 #       return 'file uploaded successfully'
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=5000,debug=True)
+    port = int(os.environ.get("PORT",5000))
+    app.run(host='0.0.0.0',port=port,debug=False)
 
 
 
